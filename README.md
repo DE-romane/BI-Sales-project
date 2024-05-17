@@ -1,4 +1,4 @@
-# Sales Insights and Performance Dashboard
+# Sales Insights and Performance Project
 
 Welcome to the **End-to-End Power BI Sales Dashboard Project**. 
 
