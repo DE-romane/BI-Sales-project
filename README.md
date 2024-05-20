@@ -52,6 +52,25 @@ To work with DAX time intelligence functions
 
 Ensure to turn off Auto Date/Time for new files in Power BI Options Settings to improve performance.
 
+```DAX
+DAX DateTable = 
+ADDCOLUMNS (
+    //CALENDAR(DATE(2020,1,1), DATE(2024,12,31)),
+    CALENDARAUTO(),
+    "Year", YEAR([Date]),
+    "Quarter", "Q" & FORMAT(CEILING(MONTH([Date])/3, 1), "#"),
+    "Quarter No", CEILING(MONTH([Date])/3, 1),
+    "Month No", MONTH([Date]),
+    "Month Name", FORMAT([Date], "MMMM"),
+    "Month Short Name", FORMAT([Date], "MMM"),
+    "Month Short Name Plus Year", FORMAT([Date], "MMM,yy"),
+    "DateSort", FORMAT([Date], "yyyyMMdd"),
+    "Day Name", FORMAT([Date], "dddd"),
+    "Details", FORMAT([Date], "dd-MMM-yyyy"),
+    "Day Number", DAY ( [Date] )
+)
+```
+
 ### Create Data Model in Power BI Desktop
 
 Design and create a data model representing the relationships between different tables. Establish proper relationships, define keys.
@@ -77,10 +96,19 @@ Use DAX to create calculated columns, measures, and tables for complex calculati
 
 ```dax
 // Measures
+
+//Measures Total Sales
 Sales = SUM(Sales_Data[Sales])
+
+//Measures Previous Year Toal Sales
 Sales PY = CALCULATE([Sales], SAMEPERIODLASTYEAR(DateTable[Date]))
+
+//Diffrence Between Current Year Sales & Previous Year Sales
 Sales vs PY = [Sales] - [Sales PY]
+
+//Percentage Increase or Decrease in sales year on year (YOY%)
 Sales vs py % = DIVIDE([Sales vs PY],[Sales],0)
+
 Products Sold = SUM(Sales_Data[Order Quantity])
 Profit = SUM(Sales_Data[Profit])
 Profit LY = CALCULATE([Profit], SAMEPERIODLASTYEAR(DateTable[Date]))
@@ -98,6 +126,3 @@ Total Cost = SUM(Sales_Data[Total Cost])
 - There is a drop in sales of all the top 7 Products.
 - 4 Customers are leading to a drop in sales.
 - The profit margin in the Export channel is higher.
-
-## Download Power BI Project PBIX File & Excel Dataset
-
