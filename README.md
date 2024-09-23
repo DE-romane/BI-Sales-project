@@ -40,7 +40,7 @@ The objective of this report is to analyze and present comprehensive insights in
 
 ### Gather Data
 
-Collect the necessary data for your project from various sources such as databases, spreadsheets, or web services. Ensure the data is accurate and relevant to your objectives.
+Collect the necessary data for project from spreadsheet
 
 ### Power Query – Data Extract, Transform & Load
 
