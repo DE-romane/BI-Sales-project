@@ -12,7 +12,7 @@ Welcome to the **End-to-End Power BI Sales Dashboard Project**.
 
 1. [Objective of the Sales Dashboard / Business Problem](#objective-of-the-sales-dashboard--business-problem)
 2. [Steps to Follow for an End-to-End Power BI Project](#steps-to-follow-for-an-end-to-end-power-bi-project)
-    - [Gather Data](#gather-data)
+    - [Import Data](#Import-Data)
     - [Power Query – Data Extract, Transform & Load](#power-query--data-extract-transform--load)
     - [Create a Date Table](#create-a-date-table)
     - [Create Data Model in Power BI Desktop](#create-data-model-in-power-bi-desktop)
@@ -38,9 +38,9 @@ The objective of this report is to analyze and present comprehensive insights in
 
 ## Steps to Follow for an End-to-End Power BI Project
 
-### Gather Data
+### Import Data
 
-Collect the necessary data for project from spreadsheet
+Load data from Data/Sales Analysis Report.xlsx
 
 ### Power Query – Data Extract, Transform & Load
 
